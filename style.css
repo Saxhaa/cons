@@ -318,3 +318,78 @@ output {
     color: red;
     
 }
+
+/* Styles pour la page d'horoscope */
+.horoscope-section {
+    text-align: center;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.horoscope-section h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5em;
+    color: black;
+    text-align: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.horoscope-section p {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+.horoscopes-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.horoscope-card {
+    flex: 1 1 300px;
+    background-color: #F5F5F5;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    border: 1px solid #df92bb;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+}
+
+.horoscope-card h3 {
+    font-family: 'Dancing Script', cursive;
+    color: #df92bb;
+    margin-top: 0;
+    font-size: 1.8em;
+}
+
+.horoscope-card p {
+    font-size: 1em;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+.refresh-button {
+    background-color: #df92bb;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 20px 0;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+}
+
+.refresh-button:hover {
+    background-color: #fac5e1;
+    color: black;
+}

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Poème du Jour - The Agence</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Lato">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Styles spécifiques pour cette page */
+        .poem-section {
+            text-align: center;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .poem-section h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5em;
+            color: black;
+            text-align: center;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        .poem-section p {
+            font-family: 'Lato', sans-serif;
+            font-size: 1.2em;
+            text-align: center;
+        }
+
+        .poem-container {
+            background-color: #F5F5F5;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            border: 1px solid #df92bb;
+            margin: 20px auto;
+            max-width: 700px;
+            text-align: center;
+            font-family: 'Lato', sans-serif;
+        }
+
+        .poem-title {
+            font-family: 'Dancing Script', cursive;
+            color: #df92bb;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .poem-author {
+            font-style: italic;
+            color: #666;
+            margin-top: 15px;
+            font-size: 1.1em;
+        }
+
+        .poem-text {
+            font-size: 1.1em;
+            line-height: 1.6;
+            text-align: left;
+            margin: 0 auto;
+            max-width: 600px;
+        }
+
+        .wikisource-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 15px;
+            background-color: #df92bb;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: 'Lato', sans-serif;
+            font-weight: bold;
+        }
+
+        .wikisource-link:hover {
+            background-color: #fac5e1;
+            color: black;
+        }
+
+        .loading {
+            font-style: italic;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Conservatoire</h1>
+        <nav>
+            <ul class="navigationLinks">
+                <li class="liste1"><a href="index.html">Accueil</a></li>
+                <li class="liste1"><a href="Notreagence.html">Notre agence</a></li>
+                <li class="liste1"><a href="poeme-du-jour.html">Poetesse du jour</a></li>
+                <li class="liste1"><a href="horoscope.html">Horoscope</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="poem-section">
+            <h2>Poetesse du jour</h2>
+            <p>Chaque jour, sélection aléatoire de poèmes écrits par une femme. <br> La boss lady du jour </br></p>
+            <div class="poem-container" id="poemContainer">
+                <p class="loading">Recherche d'un poème ...</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div>
+            <span style="padding-left:15%">&copy; Copyright 2025. By Sachouille Fripouille</span>
+        </div>
+    </footer>
+
+    <script>
+        // Liste d'autrices francophones
+        const autrices = [
+            // Moyen Âge et Renaissance
+            { name: "Marie de France", wikisource: "Marie_de_France" },
+            { name: "Christine de Pizan", wikisource: "Christine_de_Pizan" },
+            { name: "Louise Labé", wikisource: "Louise_Labé" },
+            { name: "Marguerite de Navarre", wikisource: "Marguerite_de_Navarre" },
+            { name: "Marie de Romieu", wikisource: "Marie_de_Romieu" },
+            { name: "Catherine des Roches", wikisource: "Catherine_des_Roches" },
+            { name: "Marie Le Jars de Gournay", wikisource: "Marie_Le_Jars_de_Gournay" },
+            
+            // XVIIe siècle
+            { name: "Antoinette Deshoulières", wikisource: "Antoinette_Deshoulières" },
+            { name: "Marie-Catherine de Villedieu", wikisource: "Marie-Catherine_de_Villedieu" },
+            { name: "Madeleine de Scudéry", wikisource: "Madeleine_de_Scudéry" },
+            { name: "Marie-Anne Barbier", wikisource: "Marie-Anne_Barbier" },
+            { name: "Élisabeth-Sophie Chéron", wikisource: "Élisabeth-Sophie_Chéron" },
+            
+            // XVIIIe siècle
+            { name: "Olympe de Gouges", wikisource: "Olympe_de_Gouges" },
+            { name: "Constance de Salm", wikisource: "Constance_de_Salm" },
+            
+            // XIXe siècle
+            { name: "Marceline Desbordes-Valmore", wikisource: "Marceline_Desbordes-Valmore" },
+            { name: "Amable Tastu", wikisource: "Amable_Tastu" },
+            { name: "Louise Ackermann", wikisource: "Louise_Ackermann" },
+            { name: "Malvina Blanchecotte", wikisource: "Malvina_Blanchecotte" },
+            { name: "Augusta Holmès", wikisource: "Augusta_Holmès" },
+            { name: "Delphine de Girardin", wikisource: "Delphine_de_Girardin" },
+            { name: "Louise Colet", wikisource: "Louise_Colet" },
+            { name: "Louisa Siefert", wikisource: "Louisa_Siefert" },
+            { name: "Anne Barratin", wikisource: "Anne_Barratin" },
+            
+            // Fin XIXe - début XXe siècle
+            { name: "Marie Krysinska", wikisource: "Marie_Krysinska" },
+            { name: "Anna de Noailles", wikisource: "Anna_de_Noailles" },
+            { name: "Renée Vivien", wikisource: "Renée_Vivien" },
+            { name: "Marie Noël", wikisource: "Marie_Noël" },
+            { name: "Cécile Sauvage", wikisource: "Cécile_Sauvage" },
+            { name: "Anna de Brissac", wikisource: "Anna_de_Brissac" },
+            { name: "Jeanne Loiseau (Daniel Lesueur)", wikisource: "Daniel_Lesueur" },
+            { name: "Lucie Delarue-Mardrus", wikisource: "Lucie_Delarue-Mardrus" },
+            { name: "Rachilde", wikisource: "Rachilde" },
+            { name: "Judith Gautier", wikisource: "Judith_Gautier" },
+            { name: "Marie Dauguet", wikisource: "Marie_Dauguet" },
+            { name: "Catherine Pozzi", wikisource: "Catherine_Pozzi" },
+            { name: "Hélène Vacaresco", wikisource: "Hélène_Vacaresco" },
+            { name: "Gérard d'Houville", wikisource: "Gérard_d'Houville" },
+            { name: "Hélène Picard", wikisource: "Hélène_Picard" },
+            
+            // XXe siècle (domaine public)
+            { name: "Gisèle Prassinos", wikisource: "Gisèle_Prassinos" },
+            { name: "Andrée Chedid", wikisource: "Andrée_Chedid" },
+            { name: "Joyce Mansour", wikisource: "Joyce_Mansour" },
+            { name: "Hélène Cadou", wikisource: "Hélène_Cadou" },
+            { name: "Vénus Khoury-Ghata", wikisource: "Vénus_Khoury-Ghata" },
+            { name: "Valérie Rouzeau", wikisource: "Valérie_Rouzeau" },
+            { name: "Sylvie Germain", wikisource: "Sylvie_Germain" }
+        ];
+
+
+        // Fonction pour afficher un poème écrit par une femme
+        async function afficherPoemeDuJour() {
+            const container = document.getElementById("poemContainer");
+            container.innerHTML = '<p class="loading">Recherche d\'un poème écrit par une femme...</p>';
+
+            try {
+                // Récupérer la date du jour pour sélectionner une autrice unique
+                const today = new Date();
+                const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
+
+                // Sélectionner une autrice basée sur le jour de l'année
+                const autriceIndex = dayOfYear % autrices.length;
+                const autrice = autrices[autriceIndex];
+
+                // Rechercher une page de poésie de cette autrice sur Wikisource
+                const response = await fetch(
+                    `https://fr.wikisource.org/w/api.php?action=query&format=json&origin=*&list=search&srsearch=intitle:poème+insource:${autrice.wikisource}&srnamespace=0&srlimit=10`
+                );
+
+                const data = await response.json();
+
+                if (data.query && data.query.search && data.query.search.length > 0) {
+                    // Sélectionner une page aléatoire parmi les résultats
+                    const randomIndex = Math.floor(Math.random() * data.query.search.length);
+                    const page = data.query.search[randomIndex];
+
+                    // Afficher le poème avec un lien vers Wikisource
+                    container.innerHTML = `
+                        <h3 class="poem-title">${page.title}</h3>
+                        <p class="poem-author">— ${autrice.name}</p>
+                        <a href="https://fr.wikisource.org/wiki/${encodeURIComponent(page.title.replace(/ /g, "_"))}" target="_blank" class="wikisource-link">Lire sur Wikisource</a>
+                        <p style="margin-top: 15px; font-size: 0.9em; color: #666;">
+                            Poème sélectionné parmi les œuvres de ${autrice.name}.
+                        </p>
+                    `;
+                } else {
+                    container.innerHTML = '<p class="loading">Aucun poème trouvé pour cette autrice.</p>';
+                }
+            } catch (error) {
+                console.error("Erreur lors de la recherche du poème :", error);
+                container.innerHTML = '<p class="loading">Erreur lors du chargement. Veuillez réessayer plus tard.</p>';
+            }
+        }
+
+        // Afficher le poème du jour au chargement de la page
+        window.onload = afficherPoemeDuJour;
+    </script>
+</body>
+</html>
