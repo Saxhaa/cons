@@ -16,16 +16,16 @@ function UpdateOutput(event){
     console.log(scoreCoachs)
     switch (bestCoach){
         case 0:
-            document.getElementById("out").value = "Choisissez Eole !";
+            document.getElementById("out").value = "Tout va bien se passer, t'inquiète !";
             break;
         case 1:
-            document.getElementById("out").value = "Choisissez Matthias !";
+            document.getElementById("out").value = "Mais alors là mais toi mais alors là ça va être top génial!";
             break;
         case 2:
-            document.getElementById("out").value = "Choisissez Océane !";
+            document.getElementById("out").value = "Banger ce qui t'attend bg !";
             break;
         case 3:
-            document.getElementById("out").value = "Choisissez Sacha !";
+            document.getElementById("out").value = "J'ai comme l'impression que ta vie va être un mélange de joie et de folie furieuse youpi!";
             break;
     }
 }
