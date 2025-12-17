@@ -1,1 +1,6 @@
-TP progra web
+TO DO 
+-les accents
+-boutton rafraichie horoscope
+-changer cette ptn de police
+-les spé1
+-acceuil

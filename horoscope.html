@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <title>Horoscope - The Agence</title>
+    <title>Horoscope </title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Lato">
     <meta charset="UTF-8">
@@ -14,9 +14,9 @@
         <nav>
             <ul class="navigationLinks">
                 <li class="liste1"><a href="index.html">Accueil</a></li>
-                <li class="liste1"><a href="prediction.html">Predictions divinatoires</a></li>
-                <li class="liste1"><a href="poeme-du-jour.html">Poetesse du jour</a></li>
-                <li class="liste2"><a href="horoscope.html">Horoscope</a></li>
+                <li class="liste2"><a href="prediction.html">Prédictions divinatoires</a></li>
+                <li class="liste1"><a href="poeme-du-jour.html">Poétesse du jour</a></li>
+                <li class="liste1"><a href="horoscope.html">Horoscope</a></li>
             </ul>
         </nav>
     </header>
@@ -39,151 +39,153 @@
     <script>
         // Base de données locale des horoscopes théâtraux
         const horoscopesTheatraux = {
-            belier: [
-                "« Être ou ne pas être ? » Aujourd’hui, la question ne se pose pas : **sois** ! Ton énergie de Bélier est à son comble, comme Hamlet face à un buffet gratuit. Foncé, mais réfléchis avant de casser un vase (ou un quatrième mur).",
-                "Attention à ton impulsivité, cher Bélier. Même Cyrano de Bergerac aurait hésité avant de déclarer sa flamme… ou d’insulter trois duc à la fois. Respire un coup, et compte jusqu’à « trois actes ».",
-                "Tu vas rencontrer quelqu’un d’aussi têtu que toi aujourd’hui. Prépare-toi à un duel verbal digne de *Le Cid*… mais sans les épées, hein. On est en 2025.",
-                "Ton horoscope aujourd’hui : « Tout est bien qui finit bien ». Sauf si tu décides de jouer les héros tragiques. Spoiler : ça finit rarement bien pour eux.",
-                "Un projet va enfin aboutir ! Comme *En attendant Godot*, sauf que toi, tu vas **enfin** voir Godot arriver. Et il a apporté des croissants.",
-                "Tu vas te sentir invincible aujourd’hui, comme un personnage de Molière après cinq tasses de café. Profites-en pour régler cette vieille querelle… ou pour écrire une comédie en alexandrins.",
-                "Méfie-toi des promesses trop belles. Même Tartuffe avait l’air honnête au début. (Et on sait comment ça s’est terminé.)",
-                "Ton signe te pousse à l’action aujourd’hui. Mais rappelle-toi : même les héros tragiques ont besoin de pauses pipi entre deux monologues.",
-                "Tu vas avoir une idée de génie… et la perdre aussi vite. Note-la quelque part, sinon tu finiras comme *La Cantatrice chauve* : à tourner en rond en cherchant tes mots.",
-                "Aujourd’hui, tu es le roi/la reine de la comédie. Tout le monde va rire de tes blagues… même celles que tu crois ratées. (C’est ça, le talent.)"
-            ],
-            taureau: [
-                "« La vie est une pièce de théâtre. » Aujourd’hui, tu es le décor : solide, élégant, et personne ne peut t’ignorer. Même les metteurs en scène les plus excentriques.",
-                "Ton côté Taureau te rend aussi têtu qu’un acteur refusant de jouer une scène de nu. Mais aujourd’hui, lâche un peu prise : parfois, improviser, c’est drôle.",
-                "Tu vas recevoir une bonne nouvelle… mais tu mettras trois actes à y croire. Comme *Le Bourgeois gentilhomme*, mais en moins snob.",
-                "Aujourd’hui, ton mot d’ordre : « Rire et faire rire ». Même si tu préfères les tragédies, essaie la comédie. (Spoiler : il y a moins de morts à la fin.)",
-                "Attention aux dépenses impulsives. Même Louis XIV avait un budget. (Bon, ok, il l’a dépassé. Mais toi, tu peux faire mieux.)",
-                "Tu vas te sentir aussi confortable que dans ton fauteuil préféré au théâtre… jusqu’à ce qu’on te demande de monter sur scène. Prépare un monologue, au cas où.",
-                "Un vieux projet va refaire surface. Comme *Le Malade imaginaire*, mais en moins hypocondriaque. Et avec plus de solutions.",
-                "Ton horoscope : « On ne badine pas avec l’amour ». Sauf si. Si, en fait. Badine un peu, ça détend.",
-                "Tu vas croiser quelqu’un qui te rappelle un personnage de théâtre. Résiste à l’envie de lui dire sa réplique culte. (Ou pas. On juge pas.)",
-                "Aujourd’hui, tu es le metteur en scène de ta vie. Alors dirige avec style… mais sans crier sur les accessoiristes."
-            ],
-            gemeaux: [
-                "« Double, double, peine et trouble »… mais pas pour toi, Gémeaux ! Aujourd’hui, tu vas briller sous deux projecteurs : un pour ton sérieux, un pour ton humour. (Et un troisième pour ton café renversé.)",
-                "Tu vas changer d’avis trois fois avant midi. Même *Le Jeu de l’amour et du hasard* n’avait pas autant de rebondissements.",
-                "Ton horoscope : « Parlez-moi d’amour »… ou de n’importe quoi, d’ailleurs. Aujourd’hui, tu es intarissable. (Les autres aussi, mais toi, tu es plus drôle.)",
-                "Attention à ne pas te disperser. Même Arlequin avait un fil conducteur. (Bon, ok, c’était une baguette. Mais l’idée est là.)",
-                "Tu vas avoir une conversation si absurde qu’elle pourrait être une scène de *Ionesco*. Note-la, au cas où.",
-                "Un message ambigu va t’arriver. À toi de jouer les Sherlock Holmes… ou de répondre par une pirouette digne de *Marivaux*.",
-                "Aujourd’hui, tu es le roi/la reine des répliques cultes. Dommage que personne ne soit là pour les applaudir. (Ou alors si. Surprise !)",
-                "Tu vas te lancer dans un projet… et en abandonner un autre. C’est pas grave : même *Molière* a écrit des pièces en trois jours.",
-                "Ton horoscope : « La vie est un song »… mais aujourd’hui, c’est plutôt une comédie musicale. Avec des numéros de claquettes imprévus.",
-                "Tu vas rencontrer ton « double ». Soit c’est ton âme sœur, soit c’est un miroir. (Vérifie s’il/elle a un reflet.)"
-            ],
-            cancer: [
-                "« La sensibilité est une force. » Aujourd’hui, tu vas le prouver, Cancer. Même si tu passes la moitié de la journée à pleurer sur *Roméo et Juliette*. (Spoiler : ça finit mal.)",
-                "Ton horoscope : « Rentrez chez vous, fermez les rideaux, et regardez un film triste. » (Ou alors sors, et surprends-toi.)",
-                "Tu vas te sentir nostalgique aujourd’hui. Comme un acteur qui regrette ses rôles de jeunesse… mais en moins mélodramatique.",
-                "Attention à ne pas trop te renfermer. Même *Le Misanthrope* avait besoin de compagnie. (Même s’il râlait après.)",
-                "Un proche va avoir besoin de toi. À toi de jouer les confident(e)s… ou les héros de mélodrame. (Avec modération.)",
-                "Ton humeur aujourd’hui : « À quoi bon ? » → « Et pourquoi pas ? ». Un classique du théâtre existentiel. (Mais avec une fin heureuse.)",
-                "Tu vas recevoir un compliment qui te touchera droit au cœur. Comme une réplique de *Cyrano*, mais en moins poétique. (Ou pas.)",
-                "Aujourd’hui, ton mot d’ordre : « Protège ton énergie ». Même les tragédiens grecs faisaient des pauses entre deux malheurs.",
-                "Tu vas te souvenir d’un vieux rêve. Et si tu le réalisais ? (Ou au moins, écris-le. Ça fera une bonne scène.)",
-                "Ton horoscope : « La vie est une comédie pour ceux qui pensent… et une tragédie pour ceux qui sentent. » Aujourd’hui, tu es les deux. (Et c’est très bien comme ça.)"
-            ],
-            lion: [
-                "« Tous les hommes sont des acteurs. » Aujourd’hui, Lion, tu es la star. Même si tu dois partager la scène avec un chat qui vole la vedette.",
-                "Ton charisme est à son maximum. Profites-en pour briller… mais sans écraser les figurants. (Ils ont des syndicats, maintenant.)",
-                "Tu vas avoir envie de tout diriger. Comme un metteur en scène mégalo. (Spoiler : ça finit mal dans 90% des pièces.)",
-                "Ton horoscope : « Sois toi-même, tous les autres rôles sont déjà pris. » (Oscar Wilde, qui savait de quoi il parlait.)",
-                "Attention à ne pas trop en faire. Même *Phèdre* avait ses limites. (Bon, ok, elle a fini par se suicider. Mais toi, tu peux éviter ça.)",
-                "Tu vas recevoir une standing ovation aujourd’hui. (Métaphoriquement. Ou pas. On sait jamais.)",
-                "Un projet va enfin te mettre en lumière. Comme un projecteur sur scène… mais sans la chaleur qui va avec.",
-                "Ton horoscope : « Le monde est un théâtre, mais aujourd’hui, c’est TA pièce. » Alors joue ton rôle avec panache.",
-                "Tu vas croiser quelqu’un qui te défie. À toi de choisir : duel à l’épée ou bataille de répliques cinglantes ? (Les deux sont acceptables.)",
-                "Aujourd’hui, tu es le roi/la reine. Même si ton royaume est un open-space et ta couronne un casque audio."
-            ],
-            vierge: [
-                "« L’ordre est le plaisir de la raison. » Aujourd’hui, Vierge, tu vas tout organiser… même les émotions des autres. (Bon courage.)",
-                "Ton horoscope : « Doute de tout, même de ton doute. » Mais pas trop, sinon tu vas finir comme *Hamlet*. (Et personne n’a envie de ça.)",
-                "Tu vas remarquer un détail que personne d’autre ne voit. Comme un accessoiriste qui sauve la pièce en trouvant la perruque manquante.",
-                "Attention à ne pas trop critiquer. Même *Le Critique* de Molière finissait par se faire moquer.",
-                "Un problème va se résoudre tout seul. Comme un nœud dramatique qui se dénoue au dernier acte. (Enfin.)",
-                "Ton horoscope : « La perfection est atteinte non pas quand il n’y a plus rien à ajouter, mais quand il n’y a plus rien à retirer. » (Saint-Exupéry, qui aurait fait un excellent Vierge.)",
-                "Tu vas avoir envie de tout nettoyer. Même les émotions. (Spoiler : c’est moins efficace avec un balai.)",
-                "Un projet va enfin être terminé. Comme une pièce après trois ans de répétitions. (Félicitations !)",
-                "Tu vas donner un conseil qui changera la vie de quelqu’un. Comme un oracle grec… mais en moins cryptique.",
-                "Aujourd’hui, ton mot d’ordre : « Simplifie. » Même *Ubu Roi* aurait pu être plus court."
-            ],
-            balance: [
-                "« L’équilibre est la clé. » Aujourd’hui, Balance, tu vas jongler entre deux options… et peut-être en laisser tomber une. (C’est ça, le charme.)",
-                "Ton horoscope : « À cœur vaillant, rien d’impossible. » Sauf choisir entre pizza et sushi. Là, c’est la tragédie.",
-                "Tu vas jouer les médiateurs aujourd’hui. Comme un personnage de *Marivaux*, mais avec moins de perruques.",
-                "Attention à ne pas trop hésiter. Même *Buridan* a fini par choisir. (Bon, ok, il est mort de faim. Mais c’est un détail.)",
-                "Un dilemme va se présenter. La solution ? Lance une pièce. (Ou écris une scène de théâtre pour trancher.)",
-                "Ton horoscope : « La justice est un plat qui se mange froid. » Mais aujourd’hui, tu peux le réchauffer un peu.",
-                "Tu vas rencontrer quelqu’un qui te fait douter. Comme *Le Jeu de l’amour et du hasard*, mais en moins prévisible.",
-                "Aujourd’hui, tu es l’arbitre. Même si tout le monde veut que tu choisisses son camp. (Désolé.)",
-                "Un équilibre va se rétablir. Comme à la fin d’une comédie, quand tout le monde se marie. (Ou presque.)",
-                "Ton mot d’ordre : « Harmonie ». Même si ton chat et ton chien sont en guerre. (Là, c’est une autre pièce.)"
-            ],
-            scorpion: [
-                "« La vengeance est un plat qui se mange froid. » Mais aujourd’hui, Scorpion, tu vas peut-être le réchauffer un peu. (Ou pas. On te juge pas.)",
-                "Ton horoscope : « Méfie-toi des apparences. » Même *Tartuffe* avait l’air honnête. (Et on sait comment ça s’est terminé.)",
-                "Tu vas découvrir un secret. À toi de choisir : le garder ou en faire une scène digne de *Vaudeville*.",
-                "Attention à ne pas trop manipuler. Même *Iago* a fini par se faire démasquer. (Et il était pro.)",
-                "Un mystère va être résolu. Comme dans *Les Fourberies de Scapin*, mais avec moins de coups de bâton.",
-                "Ton horoscope : « La passion est une tempête. » Aujourd’hui, tu es le capitaine. (Ou le naufragé. À toi de voir.)",
-                "Tu vas avoir envie de tout contrôler. Comme un metteur en scène tyrannique. (Spoiler : ça finit mal.)",
-                "Un ancien ennemi pourrait revenir. À toi de jouer : réconciliation ou duel final ? (Les deux sont dramatiquement satisfaisants.)",
-                "Tu vas sentir que quelque chose ne tourne pas rond. Comme dans *Huis Clos*… mais en moins existentialiste. (En théorie.)",
-                "Aujourd’hui, ton mot d’ordre : « Transforme ta rage en art. » (Ou en monologue cinglant. Les deux marchent.)"
-            ],
-            sagittaire: [
-                "« La vie est une aventure. » Aujourd’hui, Sagittaire, tu vas partir à la conquête de nouveaux horizons… ou au moins du frigo.",
-                "Ton horoscope : « Voyage loin, ris souvent, aime beaucoup. » (Et n’oublie pas de prendre des photos pour Instagram.)",
-                "Tu vas avoir une idée folle. Comme partir en voyage sans réserver. (Spoiler : ça peut être génial… ou un désastre. Mais dans les deux cas, ça fait une bonne histoire.)",
-                "Attention à ne pas promettre plus que tu ne peux tenir. Même *Don Juan* a fini par se faire rattraper.",
-                "Un projet excitant va se présenter. Comme une pièce de théâtre improvisée… mais avec un peu plus de structure. (En théorie.)",
-                "Ton horoscope : « L’optimisme est une foi qui conduit à la réussite. » Aujourd’hui, tu es le prophète de cette religion.",
-                "Tu vas rencontrer quelqu’un qui partage ta soif d’aventure. À vous deux, vous allez écrire un *road movie* digne de *Molière*. (Si Molière avait eu une voiture.)",
-                "Un obstacle va se transformer en opportunité. Comme un accessoire cassé qui devient le clou de la pièce.",
-                "Tu vas te sentir aussi libre qu’un acteur sans texte. (Spoiler : c’est à la fois terrifiant et exaltant.)",
-                "Aujourd’hui, ton mot d’ordre : « Ose. » Même si c’est juste oser demander un café gratuit."
-            ],
-            capricorne: [
-                "« Le travail est la meilleure des prières. » Aujourd’hui, Capricorne, tu vas être productif… ou au moins faire semblant.",
-                "Ton horoscope : « Patiente et persévère. » Même *Sisyphe* a dû avoir des jours où il se disait : « Bon, allez, encore un tour. »",
-                "Tu vas recevoir une récompense pour tes efforts. Comme un acteur après une longue tournée. (Spoiler : la récompense, c’est souvent un sandwich.)",
-                "Attention à ne pas trop t’isoler. Même *Le Misanthrope* avait besoin de public.",
-                "Un projet de longue haleine va enfin aboutir. Comme une pièce après dix répétitions. (Félicitations !)",
-                "Ton horoscope : « La discipline est la clé. » Aujourd’hui, tu es le gardien du temple. (Ou au moins de l’agenda partagé.)",
-                "Tu vas avoir envie de tout structurer. Même les émotions. (Spoiler : c’est impossible. Mais tu peux essayer.)",
-                "Un mentor va t’aider à avancer. Comme un vieux sage dans une tragédie grecque… mais en moins ennuyeux.",
-                "Tu vas réaliser que tu as accompli plus que tu ne le pensais. Comme un acteur qui relit son CV et se dit : « Ah oui, j’ai joué ça ! »",
-                "Aujourd’hui, ton mot d’ordre : « Bâtis quelque chose de durable. » Même si c’est juste une tour de post-it."
-            ],
-            verseau: [
-                "« L’originalité est une rébellion. » Aujourd’hui, Verseau, tu vas casser les codes… ou au moins les plier un peu.",
-                "Ton horoscope : « Sois toi-même, les autres sont déjà pris. » (Oscar Wilde, ton spirit animal.)",
-                "Tu vas avoir une idée révolutionnaire. Comme *Ubu Roi* en son temps. (Spoiler : tout le monde ne comprendra pas. Mais c’est ça, le génie.)",
-                "Attention à ne pas trop choquer. Même *Les Paravents* de Genet ont fait scandale… mais au moins, on en parle encore.",
-                "Un projet innovant va te tomber dessus. Comme une pièce d’avant-garde : soit c’est un chef-d’œuvre, soit personne ne comprend. (Les deux sont bien.)",
-                "Ton horoscope : « La folie, c’est se comporter de la même manière et s’attendre à un résultat différent. » Aujourd’hui, fais l’inverse.",
-                "Tu vas rencontrer quelqu’un aussi bizarre que toi. Ensemble, vous allez inventer un nouveau genre théâtral. (Ou au moins un meme.)",
-                "Un problème va se résoudre de manière inattendue. Comme un *deus ex machina*, mais en moins cliché.",
-                "Tu vas te sentir en avance sur ton temps. Comme tous les génies incompris. (Console-toi : ils ont souvent raison, à la fin.)",
-                "Aujourd’hui, ton mot d’ordre : « Expérimente. » Même si ça finit en catastrophe. (Les meilleures histoires commencent comme ça.)"
-            ],
-            poissons: [
-                "« La vie est un rêve. » Aujourd’hui, Poissons, tu vas flotter entre réalité et imagination… et c’est très bien comme ça.",
-                "Ton horoscope : « Écoute ton intuition. » Même si elle te dit de porter des chaussettes dépareillées. (Parfois, c’est un signe.)",
-                "Tu vas te sentir ultra-sensible. Comme un personnage de *Tchekhov*… mais avec un happy end. (En théorie.)",
-                "Attention à ne pas trop t’échapper. Même *Ophelia* aurait pu éviter la noyade avec un bon gilet de sauvetage.",
-                "Un rêve va se réaliser. Ou au moins, tu vas en avoir l’impression. (C’est déjà pas mal.)",
-                "Ton horoscope : « La poésie est ce qui se perd en traduction. » Aujourd’hui, sois ton propre poème.",
-                "Tu vas rencontrer quelqu’un qui te comprend sans mots. Comme deux mime dans une pièce silencieuse. (Mais en moins cliché.)",
-                "Un mystère va t’intriguer. À toi de choisir : le résoudre ou en faire une belle énigme. (Les deux sont valables.)",
-                "Tu vas te sentir inspiré. Écris, dessine, chante… ou fais une sieste. (L’inspiration, ça fatigue.)",
-                "Aujourd’hui, ton mot d’ordre : « Laisse-toi porter. » Même si c’est juste jusqu’au frigo."
-            ]
-        };
+    belier: [
+        "<strong>« Je suis une femme de théâtre, pas une femme de salon. »</strong> (Hélène Cixous) Aujourd’hui, Bélier, ton énergie rappelle <em>La Ville parjure</em> : intense, explosive, et un peu chaotique. Attention à ne pas tout embraser… sauf si c’est pour éclairer la scène.",
+        "Tu vas te battre pour une cause comme une héroïne de <em>Théâtre/Roman</em> de Nathalie Sarraute : avec rage et précision. Mais n’oublie pas de respirer entre deux rounds.",
+        "Ton horoscope : <strong>« Le théâtre, c’est l’art de vivre deux fois. »</strong> (Diderot) Aujourd’hui, vis ta vie comme une pièce de <em>Christine Angot</em> : sans filtre et avec audace.",
+        "Un conflit éclate ? Joue-le en comédie <em>à la manière de Coline Serreau</em> : avec humour et intelligence. Les drames, c’est surfait.",
+        "Tu vas croiser quelqu’un qui te rappelle un personnage de <em>La Cantatrice chauve</em>… mais en version féministe et bien plus drôle. <strong>À toi de jouer !</strong>",
+        "<em>Juste la fin du monde</em> de Lagarce te parle aujourd’hui : tu as des mots importants à dire. <strong>Ne les garde pas.</strong>",
+        "Un projet fou te tente ? <strong>« Osez, comme Ariane Mnouchkine osait mélanger les genres ! »</strong> (Mais vérifie d’abord le budget.)",
+        "Tu vas avoir envie de tout révolutionner. <strong>Comme <em>Les Bonnes</em> de Genet</strong>… mais en version 2025 et avec un happy end.",
+        "Un mentor inattendu arrive. <strong>Écoute-la comme tu écouterais une réplique de <em>Yasmina Reza</em> : avec attention et un sourire en coin.</strong>",
+        "<strong>Ton horoscope :</strong> « La scène t’appartient aujourd’hui. <em>Joue-la comme si c’était la dernière fois.</em> » (Mais sans brûler les planches, hein.)"
+    ],
+    taureau: [
+        "<strong>« La stabilité est une forme de résistance. »</strong> (De toi, aujourd’hui.) Comme un décor signé <em>Chantal Akerman</em> : minimaliste, puissant, et personne ne peut l’ignorer.",
+        "Tu vas te sentir aussi têtu qu’un personnage de <em>Top Girls</em> de Caryl Churchill. <strong>Reste ferme, mais ouvre une porte.</strong>",
+        "Un projet aboutit enfin ! <strong>Comme une pièce de <em>Marie NDiaye</em> : mystérieuse, profonde, et inoubliable.</strong>",
+        "<strong>Ton horoscope :</strong> « La patience est une vertu… mais l’audace est un art. » Aujourd’hui, trouve l’équilibre. (Comme un Taureau qui danse le tango sur scène.)",
+        "Tu vas recevoir un compliment qui te touchera. <strong>« Les mots doux sont les seuls qui ne mentent jamais. »</strong> (Et ceux de <em>Marguerite Duras</em> non plus.)",
+        "Attention aux dépenses impulsives. <strong>Même <em>Phèdre</em> avait un budget.</strong> (Bon, elle l’a dépassé. Mais toi, fais mieux.)",
+        "Un·e ami·e a besoin de toi. <strong>Sois là comme <em>la mère</em> dans <em>Mède</em> de Euripide… mais en moins tragique.</strong>",
+        "Tu vas te sentir aussi confortable que dans ton fauteuil préféré… <strong>jusqu’à ce qu’on te demande d’improviser.</strong> <em>Prépare un monologue, au cas où.</em>",
+        "Un vieux livre de théâtre va t’inspirer. <strong>« Les classiques sont des classiques pour une raison. »</strong> (Même ceux écrits par des femmes, enfin reconnus.)",
+        "<strong>Ton horoscope :</strong> « Cultive ton jardin… ou ton talent. » Aujourd’hui, choisis les deux. (Comme <em>George Sand</em> l’aurait fait.)"
+    ],
+    gemeaux: [
+        "<strong>« Double, double, peine et trouble »…</strong> mais pas pour toi, Gémeaux ! Aujourd’hui, tu es <em>comme dans <em>Le Jeu de l’amour et du hasard</em></em> : deux visages, deux rôles, et tout le monde adore ça.",
+        "Tu vas changer d’avis trois fois avant midi. <strong>« Même <em>Arlequin</em> n’avait pas autant de costumes ! »</strong> (Mais toi, tu gères.)",
+        "Un message ambigu arrive. <strong>Réponds comme <em>Yasmina Reza</em> écrirait une réplique : avec esprit et une pointe d’ironie.</strong>",
+        "Tu vas rencontrer ton « double ». <strong>Soit c’est ton âme sœur, soit c’est un miroir.</strong> (Vérifie si iel a un reflet… et un sens de l’humour.)",
+        "<strong>Ton horoscope :</strong> « La vie est un <em>stand-up</em>. » Aujourd’hui, tu es le/la pro des punchlines. (Même sans public.)",
+        "Une idée de génie te traverse l’esprit. <strong>Note-la avant qu’elle ne s’envole, comme une réplique de <em>Ionesco</em>.</strong>",
+        "Tu vas te lancer dans un projet… et en abandonner un autre. <strong>« Même <em>Sarah Kane</em> réécrivait ses pièces. »</strong> (Mais elle, c’était pour le drame. Toi, c’est pour le fun.)",
+        "<strong>Ton horoscope :</strong> « Aujourd’hui, tu es la reine/le roi des répliques cultes. » Dommage que personne ne soit là pour t’applaudir. (Ou si. Surprise !)",
+        "« <strong>La vie est une comédie pour ceux qui pensent…</strong> et une tragédie pour ceux qui sentent. » Aujourd’hui, tu es les deux. <strong>Et c’est parfait.</strong>",
+        "Tu vas avoir une conversation si absurde qu’elle pourrait être une scène de <em>Eugène Ionesco</em>. <strong>Note-la. Au cas où.</strong>"
+    ],
+    cancer: [
+        "<strong>« La sensibilité est une super-pouvoir. »</strong> (Aujourd’hui, Cancer.) Comme un personnage de <em>La Princesse Maleine</em> de Maeterlinck : fragile en apparence, mais d’une force insoupçonnée.",
+        "Un souvenir te hante. <strong>« Comme un fantôme dans <em>Les Troyennes</em>…</strong> mais avec plus de douceur et moins de sang. »",
+        "Tu vas te sentir nostalgique. <strong>Comme <em>la mère</em> dans <em>Mède</em>…</strong> mais sans tuer tes enfants. (Promis.)",
+        "Un·e proche a besoin de toi. <strong>Sois là comme <em>la nourrice</em> dans <em>Roméo et Juliette</em> : bienveillante, mais sans donner de mauvais conseils.</strong>",
+        "<strong>Ton horoscope :</strong> « La poésie est ce qui se perd en traduction. » Aujourd’hui, <em>sois ton propre poème</em>… même si personne ne te comprend tout de suite.",
+        "« <strong>L’émotion est une vague.</strong> Aujourd’hui, surf dessus. » (Ou au moins, flotte avec élégance, comme <em>une héroïne de Marguerite Yourcenar</em>.)",
+        "Tu vas recevoir un compliment qui te touchera. <strong>« Comme une réplique de <em>Cyrano</em>…</strong> mais écrite par une femme. (Parce que oui, elles savent faire aussi.) »",
+        "Un mystère t’intrigue. <strong>« À toi de choisir : le résoudre ou en faire une belle énigme, comme <em>Agatha Christie</em>… mais en version théâtre.</strong> »",
+        "<strong>Ton horoscope :</strong> « Aujourd’hui, écoute ton cœur. <em>Même s’il murmure en alexandrins.</em> »",
+        "Tu vas te sentir inspiré·e. <strong>Écris, dessine, chante… ou fais une sieste.</strong> (L’inspiration, ça fatigue. <em>Demande à Colette.</em>)"
+    ],
+    lion: [
+        "<strong>« Tous les hommes et femmes sont des acteurs. »</strong> (Et aujourd’hui, Lion, tu es la star.) Comme <em>Sarah Bernhardt</em> dans son rôle le plus flamboyant : <strong>impossible à ignorer.</strong>",
+        "Ton charisme est à son max. <strong>Profites-en pour briller… mais sans écraser les figurant·e·s.</strong> (Ils ont des syndicats, maintenant.)",
+        "Tu vas avoir envie de tout diriger. <strong>« Comme <em>une metteur en scène</em>…</strong> mais rappelle-toi : même <em>Patrice Chéreau</em> écoutait son équipe. »",
+        "<strong>« Sois toi-même, tous les autres rôles sont déjà pris. »</strong> (Oscar Wilde… ou <em>une héroïne de <em>La Locandiera</em> de Goldoni</em>.)",
+        "Un projet va te mettre en lumière. <strong>Comme un projecteur sur scène…</strong> mais sans la chaleur qui va avec. (Prévois de l’eau.)",
+        "Tu vas recevoir une <em>standing ovation</em>. <strong>Métaphoriquement… ou pas.</strong> (On sait jamais avec les Lion·ne·s.)",
+        "Un défi se présente. <strong>« À toi de choisir : duel à l’épée ou bataille de répliques cinglantes ? »</strong> (Les deux sont acceptables, mais la deuxième option fait moins mal.)",
+        "<strong>Ton horoscope :</strong> « Le monde est un théâtre… <em>et aujourd’hui, c’est TA pièce.</em> » Joue ton rôle avec panache. (Comme <em>Edwige Feuillère</em>.)",
+        "Tu vas croiser quelqu’un qui te défie. <strong>Réponds comme <em>une héroïne de <em>La Tragédie du Roi Christophe</em></em> : avec classe et détermination.</strong>",
+        "<strong>« Aujourd’hui, tu es le/la roi/ine. »</strong> Même si ton royaume est un open-space et ta couronne un casque audio. (<em>Mais porte-la avec fierté.</em>)"
+    ],
+    vierge: [
+        "<strong>« L’ordre est le plaisir de la raison. »</strong> (Et aujourd’hui, Vierge, tu vas tout organiser… <em>même les émotions des autres</em>.) Comme <em>une régisseuse de théâtre</em> : précise, indispensable, et un peu stressée.",
+        "Tu vas remarquer un détail invisible aux autres. <strong>« Comme <em>une costumière</em> qui sauve la pièce en trouvant le bon accessoire. »</strong>",
+        "<strong>« Doute de tout, même de ton doute. »</strong> (Mais pas trop, sinon tu vas finir comme <em>Hamlet</em>… et personne n’a envie de ça.)",
+        "Un problème va se résoudre tout seul. <strong>« Comme un nœud dramatique qui se dénoue au dernier acte. »</strong> (Enfin !)",
+        "<strong>Ton horoscope :</strong> « La perfection est atteinte quand il n’y a plus rien à retirer. » (<em>Saint-Exupéry</em>… ou <em>une metteur en scène minimaliste</em>.)",
+        "Tu vas donner un conseil qui changera une vie. <strong>« Comme <em>une oracle grec… mais en moins cryptique</em>. »</strong>",
+        "<strong>« Simplifie. »</strong> Même <em>Ubu Roi</em> aurait pu être plus court. (Et plus féministe.)",
+        "Un projet va enfin se terminer. <strong>« Comme une pièce après trois ans de répétitions. »</strong> (Félicitations ! <em>Offre-toi un verre.</em>)",
+        "<strong>Ton horoscope :</strong> « Aujourd’hui, ton mot d’ordre : <em>analyse, puis agis</em>. » (Mais pas trop, sinon tu vas rater le spectacle.)",
+        "Tu vas te sentir aussi précise qu’<em>une dramaturge</em> relisant son texte. <strong>« Même les erreurs ont leur place… si elles sont bien notées. »</strong>"
+    ],
+    balance: [
+        "<strong>« L’équilibre est la clé. »</strong> Aujourd’hui, Balance, tu vas jongler entre deux options… <em>et peut-être en laisser tomber une avec grâce</em>. Comme <em>une héroïne de Marivaux</em> : élégante, même dans le désordre.",
+        "Tu vas jouer les médiateur·rice·s. <strong>« Comme <em>une figure de <em>L’École des femmes</em></em>… mais en version 2025 et sans misogynie. »</strong>",
+        "<strong>« À cœur vaillant, rien d’impossible. »</strong> (Sauf choisir entre pizza et sushi. Là, c’est la tragédie.)",
+        "Un dilemme se présente. <strong>« Lance une pièce… ou écris une scène pour trancher. »</strong> (<em>Les deux méthodes sont valables.</em>)",
+        "<strong>Ton horoscope :</strong> « La justice est un plat qui se mange froid. » Mais aujourd’hui, <em>tu peux le réchauffer un peu</em>.",
+        "Tu vas rencontrer quelqu’un qui te fait douter. <strong>« Comme dans <em>Le Jeu de l’amour et du hasard</em>…</strong> mais avec moins de perruques et plus de franchise. »",
+        "<strong>« Aujourd’hui, tu es l’arbitre. »</strong> Même si tout le monde veut que tu choisisses son camp. (Désolé·e.)",
+        "Un équilibre va se rétablir. <strong>« Comme à la fin d’une comédie de <em>Goldoni</em> : tout le monde est content. »</strong> (Ou presque.)",
+        "<strong>Ton horoscope :</strong> « <em>Harmonie</em>… même si ton chat et ton chien sont en guerre. (Là, c’est une autre pièce.) »",
+        "Tu vas te sentir aussi diplomate qu’<em>une ambassadrice dans <em>L’Impromptu de Versailles</em></em>. <strong>« Mais avec moins de perruques. »</strong>"
+    ],
+    scorpion: [
+        "<strong>« La vengeance est un plat qui se mange froid… »</strong> mais aujourd’hui, Scorpion, tu vas peut-être le réchauffer. <em>Ou pas.</em> (À toi de voir.)",
+        "Tu vas découvrir un secret. <strong>« À toi de choisir : le garder ou en faire une scène digne de <em>Vaudeville</em>. »</strong> (Les deux options sont dramatiquement satisfaisantes.)",
+        "<strong>« Méfie-toi des apparences. »</strong> Même <em>Tartuffe</em> avait l’air honnête… <em>et on sait comment ça s’est terminé</em>.",
+        "Un mystère va être résolu. <strong>« Comme dans <em>Les Fourberies de Scapin</em>…</strong> mais avec moins de coups de bâton et plus de finesse. »",
+        "<strong>Ton horoscope :</strong> « La passion est une tempête. » Aujourd’hui, <em>tu es le capitaine</em>… ou le naufragé·e. (Les deux sont épiques.)",
+        "Tu vas avoir envie de tout contrôler. <strong>« Comme <em>une metteur en scène tyrannique</em>…</strong> mais rappelle-toi : même <em>Ingmar Bergman</em> avait ses limites. »",
+        "<strong>« Transforme ta rage en art. »</strong> (Ou en monologue cinglant. <em>Les deux marchent.</em>)",
+        "Un ancien ennemi pourrait revenir. <strong>« Réconciliation ou duel final ? »</strong> (Les deux sont dramatiquement satisfaisants… mais la première option est moins fatigante.)",
+        "<strong>Ton horoscope :</strong> « Aujourd’hui, <em>creuse</em>… mais pas trop, sinon tu vas tomber sur des vérités que tu ne voulais pas connaître. »",
+        "Tu vas sentir que quelque chose ne tourne pas rond. <strong>« Comme dans <em>Huis Clos</em>…</strong> mais en moins existentialiste. (En théorie.) »"
+    ],
+    sagittaire: [
+        "<strong>« La vie est une aventure. »</strong> Aujourd’hui, Sagittaire, tu vas partir à la conquête de nouveaux horizons… <em>ou au moins du frigo</em>.",
+        "Tu vas avoir une idée folle. <strong>« Comme partir en voyage sans réserver. »</strong> (Spoiler : ça peut être génial… ou un désastre. <em>Mais dans les deux cas, ça fait une bonne histoire.</em>)",
+        "<strong>« Voyage loin, ris souvent, aime beaucoup. »</strong> (Et n’oublie pas de prendre des photos… <em>ou d’écrire un carnet de bord</em>.)",
+        "Un projet excitant se présente. <strong>« Comme une pièce de théâtre improvisée…</strong> mais avec un peu plus de structure. (<em>En théorie.</em>) »",
+        "<strong>Ton horoscope :</strong> « L’optimisme est une foi qui conduit à la réussite. » Aujourd’hui, <em>tu es le prophète de cette religion</em>.",
+        "Tu vas rencontrer quelqu’un qui partage ta soif d’aventure. <strong>« À vous deux, vous allez écrire un <em>road movie</em> digne de <em>Marguerite Duras</em>. »</strong> (Si elle avait aimé les voitures.)",
+        "<strong>« Ose. »</strong> Même si c’est juste oser demander un café gratuit… <em>ou un rôle principal</em>.",
+        "Un obstacle va se transformer en opportunité. <strong>« Comme un accessoire cassé qui devient le clou de la pièce. »</strong>",
+        "<strong>« Laisse-toi porter. »</strong> Même si c’est juste jusqu’au frigo… <em>ou jusqu’à la prochaine répétition</em>.",
+        "<strong>Ton horoscope :</strong> « Aujourd’hui, <em>explore</em>… même si c’est juste les rayons « théâtre » d’une librairie. »"
+    ],
+    capricorne: [
+        "<strong>« Le travail est la meilleure des prières. »</strong> (Et aujourd’hui, Capricorne, tu vas être productif·ve… <em>ou au moins faire semblant</em>.)",
+        "<strong>« Patiente et persévère. »</strong> Même <em>Sisyphe</em> a dû se dire un jour : <strong>« Bon, allez, encore un tour. »</strong>",
+        "Un projet de longue haleine aboutit enfin. <strong>« Comme une pièce après dix répétitions. »</strong> (<em>Félicitations ! Offre-toi un verre… ou une sieste.</em>)",
+        "<strong>Ton horoscope :</strong> « La discipline est la clé. » Aujourd’hui, <em>tu es le gardien/la gardienne du temple</em>… ou au moins de l’agenda partagé.",
+        "Tu vas réaliser que tu as accompli plus que tu ne le pensais. <strong>« Comme un·e acteur·rice relisant son CV : « Ah oui, j’ai joué ça ! » »</strong>",
+        "<strong>« Bâtis quelque chose de durable. »</strong> Même si c’est juste une tour de post-it… <em>ou un réseau professionnel solide</em>.",
+        "<strong>« La rigueur est une forme de liberté. »</strong> (Oui, vraiment. <em>Demande à <em>Pina Bausch</em>.</em>)",
+        "Un mentor va t’aider à avancer. <strong>« Comme <em>une vieille sage</em> dans une tragédie grecque…</strong> mais en moins ennuyeux·se et avec un café à la main. »",
+        "<strong>Ton horoscope :</strong> « Aujourd’hui, <em>structure</em>… même si c’est juste pour ranger tes chaussettes par couleur. »",
+        "Tu vas te sentir aussi solide qu’un décor de <em>Phèdre</em>. <strong>« Même si tu préfères les comédies. »</strong>"
+    ],
+    verseau: [
+        "<strong>« L’originalité est une rébellion. »</strong> Aujourd’hui, Verseau, tu vas casser les codes… <em>ou au moins les plier un peu</em>.",
+        "Tu vas avoir une idée révolutionnaire. <strong>« Comme <em>Ubu Roi</em> en son temps. »</strong> (Spoiler : tout le monde ne comprendra pas. <em>Mais c’est ça, le génie.</em>)",
+        "<strong>« Sois toi-même, les autres sont déjà pris. »</strong> (Oscar Wilde… ou <em>une héroïne de <em>Théâtre/Roman</em> de Nathalie Sarraute</em>.)",
+        "Un projet innovant va te tomber dessus. <strong>« Soit c’est un chef-d’œuvre, soit personne ne comprend. »</strong> (Les deux sont bien.)",
+        "<strong>« La folie, c’est se comporter de la même manière et s’attendre à un résultat différent. »</strong> Aujourd’hui, <em>fais l’inverse</em>.",
+        "Tu vas rencontrer quelqu’un aussi bizarre que toi. <strong>« Ensemble, vous allez inventer un nouveau genre théâtral. »</strong> (Ou au moins un meme.)",
+        "<strong>« Expérimente. »</strong> Même si ça finit en catastrophe. <strong>« Les meilleures histoires commencent comme ça. »</strong>",
+        "Un problème va se résoudre de manière inattendue. <strong>« Comme un <em>deus ex machina</em>…</strong> mais en moins cliché et plus féministe. »",
+        "<strong>Ton horoscope :</strong> « Tu vas te sentir en avance sur ton temps. » (Console-toi : <em>les génies incompris ont souvent raison, à la fin</em>.)",
+        "<strong>« Aujourd’hui, ton mot d’ordre : <em>invente</em>. »</strong> Même si c’est juste une nouvelle recette de cookies… <em>ou une pièce de théâtre avant-gardiste</em>."
+    ],
+    poissons: [
+        "<strong>« La vie est un rêve. »</strong> Aujourd’hui, Poissons, tu vas flotter entre réalité et imagination… <em>et c’est très bien comme ça</em>.",
+        "<strong>« Écoute ton intuition. »</strong> Même si elle te dit de porter des chaussettes dépareillées… <em>ou d’écrire un poème en alexandrins</em>.",
+        "Tu vas te sentir ultra-sensible. <strong>« Comme un personnage de <em>Tchekhov</em>…</strong> mais avec un happy end. (<em>En théorie.</em>) »",
+        "Un rêve va se réaliser. <strong>« Ou au moins, tu vas en avoir l’impression. »</strong> (C’est déjà pas mal.)",
+        "<strong>Ton horoscope :</strong> « La poésie est ce qui se perd en traduction. » Aujourd’hui, <em>sois ton propre poème</em>… même si personne ne te comprend tout de suite.",
+        "Tu vas rencontrer quelqu’un qui te comprend sans mots. <strong>« Comme deux mime dans une pièce silencieuse…</strong> mais en moins cliché. »",
+        "<strong>« Laisse-toi porter. »</strong> Même si c’est juste jusqu’au frigo… <em>ou jusqu’à la prochaine inspiration</em>.",
+        "Un mystère va t’intriguer. <strong>« À toi de choisir : le résoudre ou en faire une belle énigme. »</strong> (Les deux sont valables… et poétiques.)",
+        "<strong>Ton horoscope :</strong> « Aujourd’hui, <em>crée</em>… même si c’est juste un gribouillis sur un ticket de métro. »",
+        "Tu vas te sentir inspiré·e. <strong>« Écris, dessine, chante… ou fais une sieste. »</strong> (<em>L’inspiration, ça fatigue. Demande à <em>Virginia Woolf</em>.</em>)"
+    ]
+};
+
+        
 
         // Noms des signes avec emojis
         const nomsSignes = {
