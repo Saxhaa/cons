@@ -7,7 +7,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
 </head>
 <body>
     <header>
@@ -15,20 +14,34 @@
         <nav>
             <ul class="navigationLinks">
                 <li class="liste1"><a href="index.html">Accueil</a></li>
-                <li class="liste1"><a href="prediction.html">Predictions divinatoires</a></li>
-                <li class="liste1"><a href="poeme-du-jour.html">Poetesse du jour</a></li>
+                <li class="liste1"><a href="prediction.html">Prédictions divinatoires</a></li>
+                <li class="liste1"><a href="poeme-du-jour.html">Poétesse du jour</a></li>
                 <li class="liste1"><a href="horoscope.html">Horoscope</a></li>
-
             </ul>
         </nav>
     </header>
 
     <main>
         <section class="poem-section">
-            <h2>Poetesse du jour</h2>
-            <p>Chaque jour, sélection aléatoire de poèmes écrits par une femme. <br> La boss lady du jour </br></p>
+            <h2>Poétesse du jour</h2>
+            <p>Chaque jour, sélection aléatoire de poèmes écrits par une femme. <br>La boss lady du jour</p>
             <div class="poem-container" id="poemContainer">
-                <p class="loading">Recherche d'un poème ...</p>
+                <h3 class="poem-title">L'Aube spirituelle</h3>
+                <p class="poem-author">— Marie Noël</p>
+                <div class="poem-text">
+                    <p>
+                    Quand l'aube se lève, un chant monte en moi,<br>
+                    Un chant de lumière et d'espérance,<br>
+                    Comme un appel doux vers la confiance,<br>
+                    Comme un souffle pur qui vient à toi.<br><br>
+
+                    Les ombres s'effacent, le jour renaît,<br>
+                    Et dans ce silence où tout se tait,<br>
+                    Mon âme écoute et se prépare<br>
+                    À recevoir l'amour qui se déclare.
+                    </p>
+                </div>
+                <a href="#" class="wikisource-link">Lire sur Wikisource</a>
             </div>
         </section>
     </main>
@@ -42,64 +55,17 @@
     <script>
         // Liste d'autrices francophones
         const autrices = [
-            // Moyen Âge et Renaissance
             { name: "Marie de France", wikisource: "Marie_de_France" },
             { name: "Christine de Pizan", wikisource: "Christine_de_Pizan" },
             { name: "Louise Labé", wikisource: "Louise_Labé" },
             { name: "Marguerite de Navarre", wikisource: "Marguerite_de_Navarre" },
-            { name: "Marie de Romieu", wikisource: "Marie_de_Romieu" },
-            { name: "Catherine des Roches", wikisource: "Catherine_des_Roches" },
             { name: "Marie Le Jars de Gournay", wikisource: "Marie_Le_Jars_de_Gournay" },
-            
-            // XVIIe siècle
-            { name: "Antoinette Deshoulières", wikisource: "Antoinette_Deshoulières" },
-            { name: "Marie-Catherine de Villedieu", wikisource: "Marie-Catherine_de_Villedieu" },
-            { name: "Madeleine de Scudéry", wikisource: "Madeleine_de_Scudéry" },
-            { name: "Marie-Anne Barbier", wikisource: "Marie-Anne_Barbier" },
-            { name: "Élisabeth-Sophie Chéron", wikisource: "Élisabeth-Sophie_Chéron" },
-            
-            // XVIIIe siècle
-            { name: "Olympe de Gouges", wikisource: "Olympe_de_Gouges" },
-            { name: "Constance de Salm", wikisource: "Constance_de_Salm" },
-            
-            // XIXe siècle
             { name: "Marceline Desbordes-Valmore", wikisource: "Marceline_Desbordes-Valmore" },
-            { name: "Amable Tastu", wikisource: "Amable_Tastu" },
-            { name: "Louise Ackermann", wikisource: "Louise_Ackermann" },
-            { name: "Malvina Blanchecotte", wikisource: "Malvina_Blanchecotte" },
-            { name: "Augusta Holmès", wikisource: "Augusta_Holmès" },
-            { name: "Delphine de Girardin", wikisource: "Delphine_de_Girardin" },
-            { name: "Louise Colet", wikisource: "Louise_Colet" },
-            { name: "Louisa Siefert", wikisource: "Louisa_Siefert" },
-            { name: "Anne Barratin", wikisource: "Anne_Barratin" },
-            
-            // Fin XIXe - début XXe siècle
-            { name: "Marie Krysinska", wikisource: "Marie_Krysinska" },
             { name: "Anna de Noailles", wikisource: "Anna_de_Noailles" },
             { name: "Renée Vivien", wikisource: "Renée_Vivien" },
             { name: "Marie Noël", wikisource: "Marie_Noël" },
-            { name: "Cécile Sauvage", wikisource: "Cécile_Sauvage" },
-            { name: "Anna de Brissac", wikisource: "Anna_de_Brissac" },
-            { name: "Jeanne Loiseau (Daniel Lesueur)", wikisource: "Daniel_Lesueur" },
-            { name: "Lucie Delarue-Mardrus", wikisource: "Lucie_Delarue-Mardrus" },
-            { name: "Rachilde", wikisource: "Rachilde" },
-            { name: "Judith Gautier", wikisource: "Judith_Gautier" },
-            { name: "Marie Dauguet", wikisource: "Marie_Dauguet" },
-            { name: "Catherine Pozzi", wikisource: "Catherine_Pozzi" },
-            { name: "Hélène Vacaresco", wikisource: "Hélène_Vacaresco" },
-            { name: "Gérard d'Houville", wikisource: "Gérard_d'Houville" },
-            { name: "Hélène Picard", wikisource: "Hélène_Picard" },
-            
-            // XXe siècle (domaine public)
-            { name: "Gisèle Prassinos", wikisource: "Gisèle_Prassinos" },
-            { name: "Andrée Chedid", wikisource: "Andrée_Chedid" },
-            { name: "Joyce Mansour", wikisource: "Joyce_Mansour" },
-            { name: "Hélène Cadou", wikisource: "Hélène_Cadou" },
-            { name: "Vénus Khoury-Ghata", wikisource: "Vénus_Khoury-Ghata" },
-            { name: "Valérie Rouzeau", wikisource: "Valérie_Rouzeau" },
-            { name: "Sylvie Germain", wikisource: "Sylvie_Germain" }
+            { name: "Andrée Chedid", wikisource: "Andrée_Chedid" }
         ];
-
 
         // Fonction pour afficher un poème écrit par une femme
         async function afficherPoemeDuJour() {
@@ -107,12 +73,8 @@
             container.innerHTML = '<p class="loading">Recherche d\'un poème écrit par une femme...</p>';
 
             try {
-                // Récupérer la date du jour pour sélectionner une autrice unique
-                const today = new Date();
-                const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
-
-                // Sélectionner une autrice basée sur le jour de l'année
-                const autriceIndex = dayOfYear % autrices.length;
+                // Sélection aléatoire d'une autrice
+                const autriceIndex = Math.floor(Math.random() * autrices.length);
                 const autrice = autrices[autriceIndex];
 
                 // Rechercher une page de poésie de cette autrice sur Wikisource
@@ -131,17 +93,28 @@
                     container.innerHTML = `
                         <h3 class="poem-title">${page.title}</h3>
                         <p class="poem-author">— ${autrice.name}</p>
+                        <div class="poem-text">
+                            <p>Poème sélectionné parmi les œuvres de ${autrice.name}.</p>
+                        </div>
                         <a href="https://fr.wikisource.org/wiki/${encodeURIComponent(page.title.replace(/ /g, "_"))}" target="_blank" class="wikisource-link">Lire sur Wikisource</a>
-                        <p style="margin-top: 15px; font-size: 0.9em; color: #666;">
-                            Poème sélectionné parmi les œuvres de ${autrice.name}.
-                        </p>
                     `;
                 } else {
-                    container.innerHTML = '<p class="loading">Aucun poème trouvé pour cette autrice.</p>';
+                    container.innerHTML = `
+                        <h3 class="poem-title">Poème introuvable</h3>
+                        <p class="poem-author">— ${autrice.name}</p>
+                        <div class="poem-text">
+                            <p>Aucun poème trouvé pour cette autrice aujourd'hui.</p>
+                        </div>
+                    `;
                 }
             } catch (error) {
                 console.error("Erreur lors de la recherche du poème :", error);
-                container.innerHTML = '<p class="loading">Erreur lors du chargement. Veuillez réessayer plus tard.</p>';
+                container.innerHTML = `
+                    <h3 class="poem-title">Erreur de chargement</h3>
+                    <div class="poem-text">
+                        <p>Impossible de charger le poème. Veuillez réessayer plus tard.</p>
+                    </div>
+                `;
             }
         }
 
