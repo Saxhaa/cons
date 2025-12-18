@@ -1,65 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <title> Conservatoire </title>
+    <title>Conservatoire</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Lato">
     <script src="codeqcm.js" defer></script>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <style>
+        .sparkle {
+            background: linear-gradient(90deg, #ffd700, #ff69b4, #00f7ff, #ffd700);
+            background-size: 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: sparkle 3s infinite alternate;
+            font-weight: bold;
+        }
+        @keyframes sparkle {
+            0% { background-position: 0%; }
+            100% { background-position: 300%; }
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1>Conservatoire</h1>
         <nav>
             <ul class="navigationLinks">
-                <li class="liste1"><a href="index.html">Accueil</a></li>
-                <li class="liste2"><a href="prediction.html">Prédictions divinatoires</a></li>
+                <li class="liste2"><a href="index.html">Accueil</a></li>
+                <li class="liste1"><a href="prediction.html">Prédictions divinatoires</a></li>
                 <li class="liste1"><a href="poeme-du-jour.html">Poétesse du jour</a></li>
                 <li class="liste1"><a href="horoscope.html">Horoscope</a></li>
             </ul>
         </nav>
     </header>
-    
+
     <main id="presentation">
         <section>
-
             <article class="articleCentered">
-                <h3>Bienvenue à toi théâtreuxe ! </h3>
-                <br>
-                <h4>Petite page web handmade, qui paie pas de mine, à l'unique vocation de vous donner le sourire. </h4>
-                <br>
+                <h3 style="font-size: 2.8rem; margin-bottom: 1.5rem;">Bienvenue à toi théâtreuxe !</h3>
+                <p style="font-size: 1.5rem; max-width: 800px; margin: 0 auto 2rem;">
+                    Petite page web handmade, qui paie pas de mine, à l'unique vocation de vous donner le sourire.
+                </p>
             </article>
 
             <article class="articleUncentered">
-                <p> 
-                    <h7>Vous avez besoin d'une inspiration divine ? de motivation ? de décontration ? </h7><br></br><br>
-                    Vous trouverez <a href="horoscope.html">ici</a> un horoscope près à vous aiguiller !
-                    <br> Vous souhaitez lire de gentils poêmes ? <a href="poemes.html">Notre sélection</a>, pourra peut-être vous en faire découvrir.
-                    <br> Envie d'un peu de musique ? <a href="playlist.html"> Cette playlist </a> collaborative saura vous égayer.
+                <p class="text-custom">
+                    Vous avez besoin d'une inspiration divine ? de motivation ? de décontration ?
                 </p>
-                <br>
+                <p style="font-size: 1.3rem; margin-bottom: 1rem;">
+                    Vous trouverez <a href="horoscope.html">ici</a> un horoscope prêt à vous aiguiller !
+                </p>
+                <p style="font-size: 1.3rem; margin-bottom: 1rem;">
+                    Vous souhaitez lire de gentils poèmes ? <a href="poemes.html">Notre sélection</a> pourra peut-être vous en faire découvrir.
+                </p>
+                <p style="font-size: 1.3rem;">
+                    Envie d'un peu de musique ? <a href="playlist.html">Cette playlist</a> collaborative saura vous égayer.
+                </p>
             </article>
-                
+
             <article class="articleUncentered">
-                <p> 
-                    <h7>Pour votre plus grand plaisir, nous vous proposons une <a href="spe1.html"> exposition temporaire </a>  et exclusive des auto-portraits de la classe des Spé 1</h7><br></br><br>
-                    
+                <p class="text-custom">
+                    Pour votre plus grand plaisir, nous vous proposons une <a href="spe1.html">exposition temporaire</a> et exclusive des <span class="sparkle" style="font-size: 1.4rem;">autoportraits</span> de la classe des Spé 1
                 </p>
-                <br>
             </article>
-                
- 
- 
         </section>
     </main>
+
     <footer>
         <div>
-            <span style="padding-left:15%">&copy Copyright 2022. By Sachouille</span>
-          </div>
+            <span style="padding-left:15%">&copy; Copyright 2022. By Sachouille</span>
+        </div>
     </footer>
 </body>
 </html>

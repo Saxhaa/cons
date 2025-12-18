@@ -1,161 +1,457 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap');
+
+:root {
+    --pastel-green: #C8E6C9;
+    --pastel-pink: #F8BBD0;
+    --pastel-yellow: #FFF9C4;
+    --pastel-blue: #BBDEFB;
+    --pastel-purple: #E1BEE7;
+    --pastel-peach: #FFE0B2;
+    --text-dark: #2C3E50;
+    --text-light: #5D6D7E;
+    --bg-light: rgba(255, 255, 255, 0.95);
+}
+
 * {
     margin: 0;
     padding: 0;
     border: 0;
-}
-
-p{
-    text-align: justify;
-}
-
-.navigationLinks {
-   /* display: inline-flex;*/
-    display: grid;
-    grid-template-columns: repeat(4,1fr) ;
-    list-style-type: none;
-    margin : 0;
-    padding : 0;
-    overflow : hidden;
-    background-color: #fac5e1;
-}
-
-h1,h2 {
-    padding-top: 0.3em;
-    padding-bottom: 0.3em;
-    font-family: 'Dancing Script';
-    color: black;
-    text-align: center;
-}
-
-h1{
-    font-size: 48px;
-}
-
-h2{
-    font-size: 40px;
+    box-sizing: border-box;
 }
 
 html {
-    font-family: Calibri, sans-serif;
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: linear-gradient(135deg, var(--pastel-pink) 0%, var(--pastel-blue) 100%);
+    background-attachment: fixed;
+    overflow-x: auto;
+    overflow-y: scroll;
+    min-height: 100vh;
+    color: var(--text-dark);
+}
+
+p {
+    text-align: justify;
+    line-height: 1.7;
+}
+
+/* HEADER & NAVIGATION */
+header {
+    background: var(--bg-light);
+    backdrop-filter: blur(10px);
+    margin-bottom: 0;
+    text-align: center;
+    padding: 2rem 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+h1, h2 {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    font-family: 'Playfair Display', serif;
+    color: var(--text-dark);
+    text-align: center;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.navigationLinks {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: transparent;
+    gap: 0.5rem;
+    max-width: 1200px;
+    margin: 1rem auto;
+}
+
+.liste1 {
+    display: block;
+    color: var(--text-dark);
+    text-align: center;
+    padding: 1rem 1.5rem;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    position: relative;
+}
+
+.liste1:hover {
+    background: rgba(102, 126, 234, 0.15);
+    transform: translateY(-2px);
+}
+
+.liste1::after {
+    content: '';
+    position: absolute;
+    bottom: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transition: width 0.3s ease;
+}
+
+.liste1:hover::after {
+    width: 60%;
+}
+
+/* Page active uniquement */
+.liste2 {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 1rem 1.5rem;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.liste2:hover {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+a:link, a:visited {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* MAIN CONTENT */
+main {
+    width: 100%;
+    padding: 2rem 0;
 }
 
 #presentation {
-    /* background-image: linear-gradient(to bottom, rgba(204, 204, 204, 0.8), rgba(252, 151, 225, 0.8)); */
-    background-size: 100%;
+    background-size: cover;
     background-repeat: no-repeat;
-    background-origin: border-box;
-    background-position: bottom left;
-    height : 800px;
-    color: black;
-    font-size: xx-large;
+    background-position: center;
+    min-height: 600px;
+    color: var(--text-dark);
+    font-size: 1.5rem;
     text-align: center;
-    height: 150%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
 }
 
-header {
-    margin-bottom: 0px;
-    text-align: center;
-    font-size: x-large;
-    background-color: #C1C0C1;
+.articleCentered, .articleUncentered {
+    padding: 3rem 15%;
+    color: var(--text-dark);
+    font-family: 'Inter', sans-serif;
+    background: var(--bg-light);
+    backdrop-filter: blur(10px);
+    margin: 2rem auto;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
 }
 
 .articleCentered {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    color: black;
-    font-family: 'Lato';
-    padding-left: 15%;
-    padding-right: 15%;
     text-align: center;
 }
 
 .articleUncentered {
-    padding-top: 2rem;
-    color: black;
-    font-family: 'Lato';
-    padding-left: 15%;
-    padding-right: 15%;
     text-align: left;
 }
 
-article > p {
-    font-size: 17px;
+article > p, article > ol {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
 }
 
 article > ol {
-    font-size: 17px;
     list-style-position: inside;
+    padding-left: 1rem;
 }
 
-
-.liste1 {
-    float : left;
-    display : block;
-    color : black;
-    text-align : center;
-    padding : 14px 16px;
-    /*outline: 1px solid black;*/ /* use instead of border */
-    
-    margin-top: 1px;
-    margin-left: 1px;
-    font-family: 'Lato';
-    font-weight: bold;
-}
-
-.liste2 {
-    float : left;
-    display : block;
-    color : black ;
-    text-align : center;
-    padding : 14px 16px;
-    /*outline: 1px solid black;*/ /* use instead of border */
-    margin-top: 1px;
-    margin-left: 1px;
-    background-color: #df92bb;
-    font-family: 'Lato';
-    font-weight: bold;
-}
-
-a:link {
-    color : black;
-    text-decoration : none;
-    font-weight: bold;
-}
-
-a:visited {
-    color : black;
-}
-
-.liste1:hover {
-    background-color: #667;
-    font-weight: bold;
-}
-
-body {
-    background-color: whitesmoke;
-    overflow-x: auto;
-    overflow-y: scroll;
-    size: 100%;
-}
-
-footer {
-    position: relative;
-    bottom: 0px;
+/* SECTIONS SPÉCIFIQUES */
+.section1 {
+    padding: 2rem;
     width: 100%;
-    padding: 10px 0;
-    background-color: #C1C0C1;
+    background: var(--bg-light);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    margin: 2rem auto;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
-hr {
-    border : 2px solid #666;
+/* HOROSCOPE */
+.horoscope-section {
+    text-align: center;
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-.notrehistoire1, .notrehistoire2{
+.horoscopes-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.horoscope-card {
+    flex: 1 1 300px;
+    background: var(--bg-light);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.horoscope-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.horoscope-card h3 {
+    font-family: 'Playfair Display', serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-top: 0;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.horoscope-card p {
+    font-size: 1rem;
+    line-height: 1.7;
+    text-align: left;
+    color: var(--text-light);
+}
+
+.refresh-button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 2rem 0;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    transition: all 0.3s ease;
+}
+
+.refresh-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+/* POÈME */
+.poem-section {
+    text-align: center;
+    padding: 3rem 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.poem-container {
+    background: var(--bg-light);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 3rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin: 2rem auto;
+    max-width: 700px;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.poem-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.poem-title {
+    font-family: 'Playfair Display', serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+}
+
+.poem-author {
+    font-style: italic;
+    color: var(--text-light);
+    margin-top: 1.5rem;
+    font-size: 1.3rem;
+    font-weight: 300;
+    font-family: 'Playfair Display', serif;
+}
+
+.poem-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-align: left;
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+.wikisource-link {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 1rem 2.5rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    transition: all 0.3s ease;
+}
+
+.wikisource-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+.loading {
+    font-style: italic;
+    color: var(--text-light);
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+/* COACH SECTION */
+.coach {
+    display: flex;
+    width: auto;
+    background: var(--bg-light);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 3rem;
+    margin: 2rem;
+    text-align: justify;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.container {
+    position: relative;
+    width: 50%;
+}
+
+.pfp {
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    margin: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.pfp:hover {
+    transform: scale(1.05);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 300px;
+    width: 300px;
+    opacity: 0;
+    transition: 0.5s ease;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%);
+    border-radius: 50%;
+    margin: 20px;
+}
+
+.container:hover .overlay {
+    opacity: 1;
+}
+
+.text {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.presentation {
+    padding: 2rem;
+    margin: 2rem;
+}
+
+.typeCoach {
+    margin: 0.5rem 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+/* HISTOIRE */
+.notrehistoire1, .notrehistoire2 {
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between ;
-    padding: 0; 
+    justify-content: space-between;
+    padding: 2rem 0;
+    gap: 2rem;
 }
 
 .notrehistoire2 > div {
@@ -166,309 +462,189 @@ hr {
     padding-left: 2%;
 }
 
-
-table, th, td {
-    border: 1px solid;
-    border-color: rgb(204, 180, 228);
-}
-
-.tableau{
-
-   text-align: center;
-   border-collapse: collapse;
-   width: 100%;
-   
-}
-   
-thead{
-   background-color: #fac5e1; 
-}
-
-.coach {
-    display:flex;
-    width: auto;
-    border: 2px solid  #df92bb;
-    padding: 50px;
-    margin: 20px;
-    text-align: justify;
-  }
-
-  .container {
-    position: relative;
-    width: 50%;
-  }
-
-  .overlay {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 300px;
-    width: 300px;
-    opacity: 0;
-    transition: .5s ease;
-    background-color: rgb(234, 127, 202);
-    border-radius: 50%;
-    margin:20px
-  }
-  
-  .container:hover .overlay {
-    opacity: 1;
-  }
-  
-  .text {
-    color: white;
-    font-size: 20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-  }
-
-.pfp {
-    border-radius:50%;
-    width:300px;
-    height:300px;
-    margin:20px;
-}
-
-.presentation {
-    padding-top: 1%;
-    margin:30px;
-    padding-left: 5%;
-}
-
-.typeCoach {
-    margin: 5px;
-    color: #df92bb;
-}
-
+/* TABLEAUX */
 .mainTables {
-    padding-top: 1%;
+    padding-top: 2rem;
     display: flex;
     justify-content: center;
 }
 
-.tabito {
+.tabito, .tableau {
     width: 70%;
     text-align: center;
+    background: var(--bg-light);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
-.section1 {
-    padding-left: 2%;
-    padding-right: 2%;
-    width : 94%;
+table, th, td {
+    border: 1px solid rgba(102, 126, 234, 0.2);
 }
 
-main {
+.tableau {
+    border-collapse: collapse;
     width: 100%;
 }
-.col-md-4 {
-    text-align: justify;
+
+thead {
+    background: linear-gradient(135deg, var(--pastel-pink) 0%, var(--pastel-purple) 100%);
+    color: var(--text-dark);
+    font-weight: 600;
 }
 
-label {
-    font-size: 18px;
+th, td {
+    padding: 1rem;
 }
 
-output {
-    font-size: 16px;
-}
-
-.question {
-    font-size: medium;
-    margin-bottom: 1rem;
+/* QCM */
+.qcm {
+    padding: 3rem 10%;
+    color: var(--text-dark);
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
 }
 
 .questionContainer {
-    border: solid 2px rgb(234, 127, 202);
-    border-radius: 1rem;
-    background-color: #F5F5F5;
-    height: 11rem;
+    border: 2px solid rgba(102, 126, 234, 0.3);
+    border-radius: 20px;
+    background: var(--bg-light);
+    backdrop-filter: blur(10px);
+    min-height: 11rem;
     width: 20rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    margin:auto;
-    margin-top: 2rem;
-    font-size: large;
+    padding: 2rem;
+    margin: auto;
+    font-size: 1.1rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
-.qcm {
-    padding-top: 2rem;
-    color: black;
-    font-family: 'Lato';
-    padding-left: 10%;
-    padding-right: 10%;
-    text-align: left;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+.questionContainer:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 
-.questionContainer > div {
-    height: auto;
-    font-size: medium;
+.question {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+label {
+    font-size: 1.1rem;
+    cursor: pointer;
 }
 
 output {
-    font-size: larger;
+    font-size: 1.3rem;
     font-weight: bold;
-    color: red;
-    
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
-/* Styles pour la page d'horoscope */
-.horoscope-section {
+/* FOOTER */
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    padding: 2rem 0;
+    background: var(--bg-light);
+    backdrop-filter: blur(10px);
+    margin-top: 4rem;
     text-align: center;
-    padding: 20px;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+}
+
+hr {
+    border: 2px solid rgba(102, 126, 234, 0.2);
+    margin: 2rem 0;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .navigationLinks {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .articleCentered, .articleUncentered {
+        padding: 2rem 5%;
+    }
+
+    .coach {
+        flex-direction: column;
+        padding: 2rem;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    .notrehistoire1, .notrehistoire2 {
+        flex-direction: column;
+    }
+
+    .poem-container {
+        padding: 2rem;
+    }
+
+    .horoscopes-container {
+        gap: 1rem;
+    }
+    /* Ajustement des zones de texte pour l'index */
+#presentation {
+    padding: 3rem 5%;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.horoscope-section h2 {
-    font-family: 'Dancing Script', cursive;
-    font-size: 2.5em;
-    color: black;
-    text-align: center;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+#presentation .articleCentered,
+#presentation .articleUncentered {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 2.5rem;
+    margin: 2rem auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    line-height: 1.8;
 }
 
-.horoscope-section p {
-    font-family: 'Lato', sans-serif;
-    font-size: 1.2em;
-    text-align: center;
+#presentation p {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
 }
 
-.horoscopes-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.horoscope-card {
-    flex: 1 1 300px;
-    background-color: #F5F5F5;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    border: 1px solid #df92bb;
-    text-align: center;
-    font-family: 'Lato', sans-serif;
-}
-
-.horoscope-card h3 {
-    font-family: 'Dancing Script', cursive;
+#presentation a {
     color: #df92bb;
-    margin-top: 0;
-    font-size: 1.8em;
+    text-decoration: underline;
+    font-weight: 600;
 }
 
-.horoscope-card p {
-    font-size: 1em;
-    line-height: 1.5;
-    text-align: justify;
+/* Ajustement spécifique pour les spans */
+#presentation .text-custom {
+    font-size: 1.3rem;
+    display: block;
+    margin-bottom: 1rem;
 }
 
-.refresh-button {
-    background-color: #df92bb;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1em;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 20px 0;
-    font-family: 'Lato', sans-serif;
-    font-weight: bold;
+/* Espacement entre les articles */
+#presentation article {
+    margin-bottom: 3rem;
 }
 
-.refresh-button:hover {
-    background-color: #fac5e1;
-    color: black;
 }
-
-.poem-section {
-            text-align: center;
-            padding: 20px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .poem-section h2 {
-            font-family: 'Dancing Script', cursive;
-            font-size: 2.5em;
-            color: black;
-            text-align: center;
-            padding-top: 1rem;
-            padding-bottom: 1rem;
-        }
-
-        .poem-section p {
-            font-family: 'Lato', sans-serif;
-            font-size: 1.2em;
-            text-align: center;
-        }
-
-        .poem-container {
-            background-color: #F5F5F5;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding: 25px;
-            border: 1px solid #df92bb;
-            margin: 20px auto;
-            max-width: 700px;
-            text-align: center;
-            font-family: 'Lato', sans-serif;
-        }
-
-        .poem-title {
-            font-family: 'Dancing Script', cursive;
-            color: #df92bb;
-            font-size: 1.8em;
-            margin-bottom: 15px;
-        }
-
-        .poem-author {
-            font-style: italic;
-            color: #666;
-            margin-top: 15px;
-            font-size: 1.1em;
-        }
-
-        .poem-text {
-            font-size: 1.1em;
-            line-height: 1.6;
-            text-align: left;
-            margin: 0 auto;
-            max-width: 600px;
-        }
-
-        .wikisource-link {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 8px 15px;
-            background-color: #df92bb;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-family: 'Lato', sans-serif;
-            font-weight: bold;
-        }
-
-        .wikisource-link:hover {
-            background-color: #fac5e1;
-            color: black;
-        }
-
-        .loading {
-            font-style: italic;
-            color: #666;
-        }
-  
