@@ -350,7 +350,7 @@
                     </div>
                 </div>
 
-                <button id="calc" class="questionContainer">
+                <button id="calc" type="button" class="questionContainer">
                     <h3>Divination de ton avenir</h3>
                 </button>
             </article>
@@ -362,8 +362,80 @@
     </main>
     <footer>
         <div>
-            <span style="padding-left:15%">&copy; Copyright 2022. By Sach la menace</span>
+            <span style="padding-left:15%">&copy; Copyright 2025. By Sach la menace</span>
         </div>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    // Fonction pour vérifier si une réponse est sélectionnée
+    function atLeastOneRadio(i) {
+        return document.querySelector('input[name="q' + i + '"]:checked') !== null;
+    }
+
+    // Fonction principale pour calculer le résultat
+    function UpdateOutput() {
+        let nbQuestions = 19;
+        let scoreCoachs = [0, 0, 0, 0]; // 0: Éole, 1: Matt, 2: Océ, 3: Sacha
+
+        for (let i = 1; i <= nbQuestions; i++) {
+            if (atLeastOneRadio(i)) {
+                let selectedValue = parseInt(document.querySelector('input[name="q' + i + '"]:checked').value);
+                if (!isNaN(selectedValue) && selectedValue >= 0 && selectedValue < scoreCoachs.length) {
+                    scoreCoachs[selectedValue] += 1;
+                }
+            }
+        }
+
+        let bestCoach = scoreCoachs.indexOf(Math.max(...scoreCoachs));
+        let outputElement = document.getElementById("out");
+
+        if (outputElement) {
+            switch (bestCoach) {
+                case 0:
+                    outputElement.textContent = "Tout va bien se passer, t'inquiète !";
+                    break;
+                case 1:
+                    outputElement.textContent = "Mais alors là mais toi mais alors là ça va être top génial!";
+                    break;
+                case 2:
+                    outputElement.textContent = "Banger ce qui t'attend bg !";
+                    break;
+                case 3:
+                    outputElement.textContent = "J'ai comme l'impression que ta vie va être un mélange de joie et de folie furieuse youpi!";
+                    break;
+                default:
+                    outputElement.textContent = "Aucun coach ne te correspond vraiment, désolé !";
+            }
+        }
+    }
+
+    // Fonction pour le cas "pauvre"
+    function Pauvre() {
+        alert("Malheureusement votre budget est trop faible, nous vous conseillons de vous rediriger vers un coach en finance");
+        document.querySelector('input[name="q1"][value="0"]').checked = false;
+    }
+
+    // Fonction pour le cas "malandrin"
+    function Malandrin() {
+        window.open("https://fr.wiktionary.org/wiki/pignouf", "_blank");
+        document.querySelector('input[name="q19"][value="1"]').checked = false;
+    }
+
+    // Ajout des écouteurs d'événements
+    document.getElementById("calc").addEventListener("click", UpdateOutput);
+
+    // Écouteurs pour les options spéciales
+    document.getElementById("pauvre").addEventListener("click", function(event) {
+        Pauvre();
+        event.preventDefault();
+    });
+
+    document.getElementById("malandrin").addEventListener("click", function(event) {
+        event.preventDefault();
+        Malandrin();
+    });
+});
+
+    </script>
 </body>
 </html>
